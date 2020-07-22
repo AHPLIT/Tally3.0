@@ -1,5 +1,7 @@
 {% extends base.html %}
 
 {% block content %}
-
+    <h1 class="tally3-h1">Which Department are you in?</h1>
+    <a href="{{ url_for('info_services') }}">Information Services (Adult)</a>
+    <a href="{{ url_for('youth_services') }}">Youth Services</a>
 {% endblock %}
