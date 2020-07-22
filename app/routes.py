@@ -13,3 +13,9 @@ def index():
 def youth_info_queries():
     form = TallyForm()
     return render_template('youth_services.html', title="youth", form=form)
+
+
+@app.route('/info', methods=['GET', 'POST'])
+def adult_info_queries():
+    form = TallyForm()
+    return render_template('info_services.html', title="Information Services", form=form)
