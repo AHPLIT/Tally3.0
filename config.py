@@ -1,4 +1,5 @@
 # Handles all app.config configuration setup for the application
+# Loaded in __init__.py
 
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))

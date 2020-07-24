@@ -6,10 +6,11 @@ from app.models import *
 def write_to_database(form, department_number):
     date_string = datetime.datetime.now().strftime('%Y-%m-%d')
     time_string = datetime.datetime.now().strftime('%H:%M')
+    # WTForms returns a boolean, SQLite needs an integer. Do a quick conversion
     if form.referral.data:
-        ref_int = 1
+        ref_int = 1  # True
     else:
-        ref_int = 0
+        ref_int = 0  # False
     response = Queries(
         q_type=form.q_type.data,
         department=department_number,
@@ -30,8 +31,9 @@ def read_from_database(form):
     referrals = form.referral.data
     # -1 == All
     if department == "-1" and referrals == "-1":
+        # This & syntax is specific to SQLAlchemy for properly querying the db
         report = db.session.query(Queries).filter(
-            (start_date <= Queries.date) & (end_date >= Queries.date) &(start_time <= Queries.time) &
+            (start_date <= Queries.date) & (end_date >= Queries.date) & (start_time <= Queries.time) &
             (end_time >= Queries.time)).all()
     elif department == "-1" and referrals != "-1":
         report = db.session.query(Queries).filter(
@@ -46,6 +48,7 @@ def read_from_database(form):
             (start_date <= Queries.date) & (end_date >= Queries.date) & (start_time <= Queries.time) &
             (end_time >= Queries.time) & (department == Queries.department) & (referrals == Queries.referral)).all()
     else:
+        # Custom exception. This should never happen so if it does, fail loudly.
         raise t3exceptions.Error("If statement failure! Incorrect combination of department and referral refs")
     return report
 

@@ -2,7 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import TextAreaField, BooleanField, SelectField, SubmitField
 from wtforms.fields.html5 import DateField, TimeField
 from wtforms.validators import DataRequired
-import datetime, calendar
+import datetime
+import calendar
 
 
 class TallyForm(FlaskForm):
@@ -18,6 +19,7 @@ class TallyForm(FlaskForm):
 class ReportForm(FlaskForm):
     # Use the calendar module to get the last day of the month to prefill the form for a one month range
     month_days = calendar.monthrange(datetime.datetime.now().year, datetime.datetime.now().month)
+    # Prefill start date with the first day of the month (conveniently, always day 1)
     start_date = DateField("Start Date", validators=[DataRequired()], default=datetime.datetime.now().replace(day=1))
     # Month days holds 2 values, the first and last day of the month IE: (1, 31), get the second value for last day
     end_date = DateField("End Date", validators=[DataRequired()], default=datetime.datetime.now().replace(day=month_days[1]))
