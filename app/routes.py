@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, flash
 from app.forms import TallyForm, ReportForm
 from app import db_functions
+import datetime
 
 
 @app.route('/')
@@ -33,7 +34,11 @@ def reports():
     form = ReportForm()
     if form.validate_on_submit():
         report = db_functions.read_from_database(form)
-        return render_template('reports.html', title="Reports", form=form, report=report, total=len(report))
+        for rp in report:
+            twenty_four_hr_time = datetime.datetime.strptime(rp.time, "%H:%M")
+            rp.time = twenty_four_hr_time.strftime("%I:%M %p").lstrip("0").replace(" 0","")
+        return render_template(
+            'reports.html', title="Reports", form=form, report=report, total=len(report))
     return render_template('reports.html', title="Reports", form=form)
 
 
