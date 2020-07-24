@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="tally-h1">Reports</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.start_date.label }}
+            <br>
+            {{ form.start_date }}
+            <br>
+                {% for error in form.start_date.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.end_date.label }}
+            <br>
+            {{ form.end_date }}
+            <br>
+                {% for error in form.end_date.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.start_time.label }}
+            <br>
+            {{ form.start_time }}
+            <br>
+                {% for error in form.start_time.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.end_time.label }}
+            <br>
+            {{ form.end_time }}
+            <br>
+                {% for error in form.end_time.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.department.label}}
+            <br>
+            {{ form.department }}
+            <br>
+                {% for error in form.department.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.referral.label }}
+            <br>
+            {{ form.referral }}
+            <br>
+                {% for error in form.referral.errors %}
+                    <span class="form_error">{{ error }}</span>
+                {% endfor %}
+            <br>
+            {{ form.submit }}
+        </p>
+    </form>
+
+    {% if report %}
+        <h2 class="tally-h2">Total Number of interactions: {{ total }}</h2>
+        <table class="tally-table">
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Department</th>
+                <th>Interaction Type</th>
+                <th>Referral</th>
+                <th>Notes</th>
+            </tr>
+            {% for rp in report %}
+                <tr>
+                    <td>{{ rp.date }}</td>
+                    <td>{{ rp.time }}</td>
+                    {% if rp.department == '1' %}
+                        <td>Information</td>
+                    {% elif rp.department == '2' %}
+                        <td>Youth</td>
+                    {% else %}
+                        <td>Unknown Department</td>
+                    {% endif %}
+
+                    <td>{{ rp.q_type }}</td>
+
+                    {% if rp.referral == 1 %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+
+                    <td>{{ rp.notes }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

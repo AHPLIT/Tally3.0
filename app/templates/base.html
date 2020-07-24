@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     {% if title %}
-        <title>{{ Title }} - Tally3.0</title>
+        <title>{{ title }} - Tally3.0</title>
     {% else %}
         <title>Tally 3.0</title>
     {% endif %}
 </head>
 <body>
+{# Checks to see if there are any messages from Flask's flash function #}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div id="flash">
+    <ul>
+        {% for message in messages %}
+            <ul>{{ message }}</ul>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endwith %}
+
+<a href="{{ url_for('adult_info_queries') }}">Information Services</a>
+<a href="{{ url_for('youth_info_queries') }}">Youth Services</a>
+<a href="{{ url_for('reports') }}">Reports</a>
+
 {% block content %}
 
 {% endblock %}
