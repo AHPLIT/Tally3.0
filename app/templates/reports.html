@@ -58,6 +58,10 @@
 
     {% if report %}
         <h2 class="tally-h2">Total Number of interactions: {{ total }}</h2>
+        <form>
+            {{ export.hidden_tag() }}
+            {{ export.submit }}
+        </form>
         <table class="tally-table">
             <tr>
                 <th>Date</th>

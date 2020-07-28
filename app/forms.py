@@ -35,3 +35,8 @@ class ReportForm(FlaskForm):
                             validators=[DataRequired()], default="All")
     submit = SubmitField("Run Report")
 
+
+# One button form for calling export function
+class ExportForm(FlaskForm):
+    export = SubmitField("Export to Excel")
+

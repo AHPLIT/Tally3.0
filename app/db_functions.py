@@ -1,4 +1,5 @@
 import datetime
+from flask_excel import make_response_from_query_sets
 from app import t3exceptions
 from app.models import *
 
@@ -53,4 +54,6 @@ def read_from_database(form):
     return report
 
 
-
+def export_to_excel(form):
+    response = read_from_database(form)
+    make_response_from_query_sets(response, ['Department', 'Date', 'Time', 'Notes', 'Referral'], 'xlsx', status=200, file_name='report')
