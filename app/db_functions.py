@@ -29,7 +29,7 @@ def read_from_database(form):
     start_time = form.start_time.data
     end_time = form.end_time.data
     department = form.department.data
-    referrals = form.referral.data
+    referrals = form.referral_type.data
     # -1 == All
     if department == "-1" and referrals == "-1":
         # This & syntax is specific to SQLAlchemy for properly querying the db

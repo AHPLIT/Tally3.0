@@ -1,95 +1,96 @@
 {% extends "base.html" %}
 {% block content %}
     <h1 class="tally-h1">Reports</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.start_date.label }}
-            <br>
-            {{ form.start_date }}
-            <br>
-                {% for error in form.start_date.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.end_date.label }}
-            <br>
-            {{ form.end_date }}
-            <br>
-                {% for error in form.end_date.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.start_time.label }}
-            <br>
-            {{ form.start_time }}
-            <br>
-                {% for error in form.start_time.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.end_time.label }}
-            <br>
-            {{ form.end_time }}
-            <br>
-                {% for error in form.end_time.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.department.label}}
-            <br>
-            {{ form.department }}
-            <br>
-                {% for error in form.department.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.referral.label }}
-            <br>
-            {{ form.referral }}
-            <br>
-                {% for error in form.referral.errors %}
-                    <span class="form_error">{{ error }}</span>
-                {% endfor %}
-            <br>
-            {{ form.submit }}
-        </p>
-    </form>
-
+    <div class="tally-form">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.start_date.label }}
+                <br>
+                {{ form.start_date }}
+                <br>
+                    {% for error in form.start_date.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.end_date.label }}
+                <br>
+                {{ form.end_date }}
+                <br>
+                    {% for error in form.end_date.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.start_time.label }}
+                <br>
+                {{ form.start_time }}
+                <br>
+                    {% for error in form.start_time.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.end_time.label }}
+                <br>
+                {{ form.end_time }}
+                <br>
+                    {% for error in form.end_time.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.department.label}}
+                <br>
+                {{ form.department }}
+                <br>
+                    {% for error in form.department.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.referral_type.label }}
+                <br>
+                {{ form.referral_type }}
+                <br>
+                    {% for error in form.referral_type.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
+                {{ form.submit }}
+            </p>
+        </form>
+    </div>
     {% if report %}
         <h2 class="tally-h2">Total Number of interactions: {{ total }}</h2>
-        <a href="/download_csv">Export to CSV</a>
+        <a href="/download_csv" class="tally-button" id="export-csv">Export to CSV</a>
         <br>
         <table class="tally-table">
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Department</th>
-                <th>Interaction Type</th>
-                <th>Referral</th>
-                <th>Notes</th>
+            <tr class="tally-header-row">
+                <th class="tally-heading">Date</th>
+                <th class="tally-heading">Time</th>
+                <th class="tally-heading">Department</th>
+                <th class="tally-heading">Interaction Type</th>
+                <th class="tally-heading">Referral</th>
+                <th class="tally-heading">Notes</th>
             </tr>
             {% for rp in report %}
-                <tr>
-                    <td>{{ rp.date }}</td>
-                    <td>{{ rp.time }}</td>
+                <tr class="tally-row">
+                    <td class="tally-table-data">{{ rp.date }}</td>
+                    <td class="tally-table-data">{{ rp.time }}</td>
                     {% if rp.department == '1' %}
-                        <td>Information</td>
+                        <td class="tally-table-data">Information</td>
                     {% elif rp.department == '2' %}
-                        <td>Youth</td>
+                        <td class="tally-table-data">Youth</td>
                     {% else %}
-                        <td>Unknown Department</td>
+                        <td class="tally-table-data">Unknown Department</td>
                     {% endif %}
 
-                    <td>{{ rp.q_type }}</td>
+                    <td class="tally-table-data">{{ rp.q_type }}</td>
 
                     {% if rp.referral == 1 %}
-                        <td>Yes</td>
+                        <td class="tally-table-data">Yes</td>
                     {% else %}
-                        <td>No</td>
+                        <td class="tally-table-data">No</td>
                     {% endif %}
 
-                    <td>{{ rp.notes }}</td>
+                    <td class="tally-table-data">{{ rp.notes }}</td>
                 </tr>
             {% endfor %}
         </table>

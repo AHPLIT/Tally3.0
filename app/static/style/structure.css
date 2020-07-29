@@ -1,0 +1,101 @@
+/* Layout Stuff Goes Here */
+
+.tally-container
+{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: auto;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.tally-headings, .tally-h1, .tally-h2, .tally-form, #info-service-btn, #youth-service-btn, #export-csv
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+#info-service-btn, #youth-service-btn
+{
+    margin: 10px;
+}
+
+.tally-table
+{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#export-csv
+{
+    margin-bottom: 25px;
+}
+
+.tally-h1
+{
+    font-size: 36px;
+}
+
+#q_type
+{
+    font-size: 24px;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#notes
+{
+    font-size: 24px;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#submit
+{
+    font-size: 24px;
+    width: 100%;
+}
+
+input[type='checkbox']
+{
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    margin-bottom: 10px;
+}
+
+input[type='checkbox']:hover
+{
+    cursor: pointer;
+    background: lightgray;
+}
+
+input[type='checkbox']:checked
+{
+    background: #74ac43;
+}
+
+#start_date, #end_date, #start_time, #end_time, #department, #referral_type
+{
+    font-size: 24px;
+    width: 100%;
+}
+
+#submit
+{
+    padding: 10px;
+    font-size: 28px;
+}
+
+
+
+

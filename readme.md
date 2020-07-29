@@ -9,12 +9,13 @@ some fancy, but not terribly complicated, reporting functionality.
 ## Changelog
 7/29/2020
 * Added export to CSV functionality
+* Added CSS styling to all pages
 
 7/24/2020
 * Wrote the program
 
 ## Planned Upcoming Features
-* Adding CSS (ha)
+* ~~Adding CSS (ha)~~
 * Filter by interaction type when running report
 * ~~Export table to Excel/CSV~~
 * Build out Docker deployment

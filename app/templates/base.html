@@ -7,27 +7,34 @@
     {% else %}
         <title>Tally 3.0</title>
     {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/structure.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css')}}">
 </head>
-<body>
-{# Checks to see if there are any messages from Flask's flash function #}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<div id="flash">
-    <ul>
-        {% for message in messages %}
-            <ul>{{ message }}</ul>
-        {% endfor %}
-    </ul>
-</div>
-{% endif %}
-{% endwith %}
+<body class="tally-container">
+    <div class="tally-headings">
+        {# Checks to see if there are any messages from Flask's flash function #}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div id="flash">
+            <ul>
+                {% for message in messages %}
+                    <ul>{{ message }}</ul>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
 
-<a href="{{ url_for('adult_info_queries') }}">Information Services</a>
-<a href="{{ url_for('youth_info_queries') }}">Youth Services</a>
-<a href="{{ url_for('reports') }}">Reports</a>
+        <div class="top_menu">
+            <a href="{{ url_for('adult_info_queries') }}" class=tally-menu-option>Information Services</a>
+            <a href="{{ url_for('youth_info_queries') }}" class=tally-menu-option>Youth Services</a>
+            <a href="{{ url_for('reports') }}" class=tally-menu-option>Reports</a>
+        </div>
+    </div>
 
-{% block content %}
 
-{% endblock %}
+    {% block content %}
+
+    {% endblock %}
 </body>
 </html>

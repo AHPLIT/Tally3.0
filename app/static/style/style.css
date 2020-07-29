@@ -1,0 +1,66 @@
+/* Pretty Stuff Goes Here */
+
+body
+{
+    background-color: #0298d2;
+}
+
+.tally-form
+{
+    color: #f1f1f1;
+    text-shadow: 1px 1px #000000;
+}
+
+.tally-h1
+{
+    color: #f1f1f1;
+    text-shadow: 1px 1px #000000;
+}
+
+.tally-h2
+{
+    color: #f1f1f1;
+    text-shadow: 1px 1px #000000;
+}
+
+#submit, .tally-button, .tally-menu-option
+{
+    background: #74ac43;
+    cursor: pointer;
+    color: #f1f1f1;
+    box-shadow: 1px 1px #666666;
+    text-shadow: 1px 1px #000000;
+    transition: ease .3s;
+    text-decoration: none;
+    border: none;
+}
+
+#submit:hover, .tally-button:hover, .tally-menu-option:hover
+{
+    background-color: #6a9f3c;
+    transition: ease .3s;
+    cursor: pointer;
+}
+
+.tally-menu-option
+{
+    padding: 15px;
+    margin-top: 105px;
+}
+
+.tally-table
+{
+    color: #f1f1f1;
+    text-shadow: 1px 1px #000000;
+}
+
+.tally-heading
+{
+    border: 2px solid black;
+    background-color: #74ac43;
+}
+td
+{
+    border-bottom: 2px solid black;
+}
+
