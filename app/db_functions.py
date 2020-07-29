@@ -56,4 +56,4 @@ def read_from_database(form):
 
 def export_to_excel(form):
     response = read_from_database(form)
-    make_response_from_query_sets(response, ['Department', 'Date', 'Time', 'Notes', 'Referral'], 'xlsx', status=200, file_name='report')
+    return make_response_from_query_sets(response, ['Department', 'Date', 'Time', 'Notes', 'Referral'], 'csv')

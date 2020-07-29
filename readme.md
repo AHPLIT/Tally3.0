@@ -7,13 +7,16 @@ for logging patron interactions at the library. At its heart, it is a simple CRU
 some fancy, but not terribly complicated, reporting functionality.
 
 ## Changelog
+7/29/2020
+* Added export to CSV functionality
+
 7/24/2020
 * Wrote the program
 
 ## Planned Upcoming Features
 * Adding CSS (ha)
 * Filter by interaction type when running report
-* Export table to Excel/CSV
+* ~~Export table to Excel/CSV~~
 * Build out Docker deployment
 
 ## How it Works
@@ -38,6 +41,10 @@ This will generate an HTML table with all the relevant inquiries listed based on
 For convenience, again, the total number of interactions displayed by the current report is always listed at
 the top of the table. So, if you only wanted to get the total number of interactions with patrons this month,
 you can do so with two clicks. Reports>Run Report (since the date information is auto filled!)
+
+This table can also be exported to a CSV file for opening in your spreadsheet application
+of choice. This export leverages the Flask-Excel plugin and is generated directly from the
+database query
 
 ## Deployment Instructions
 Tally3.0 is designed to be deployed locally in a Docker container on a Linux server. 

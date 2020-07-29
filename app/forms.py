@@ -38,5 +38,5 @@ class ReportForm(FlaskForm):
 
 # One button form for calling export function
 class ExportForm(FlaskForm):
-    export = SubmitField("Export to Excel")
+    submit = SubmitField("Export to Excel")
 
