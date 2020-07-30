@@ -30,6 +30,10 @@ class ReportForm(FlaskForm):
     department = SelectField('Department', choices=
                              [('-1', 'All'), ('1', 'Information Services'), ('2', 'Youth Services')],
                              validators=[DataRequired()], default="All")
+    q_type_report = SelectField('Interaction Type:', choices=
+                         [("All", "All"), ("Collections", "Collections"), ("Research", "Research"),
+                          ("Technology", "Technology"), ("Patron Account", "Patron Account"), ("Other", "Other")],
+                         validators=[DataRequired()])
     referral_type = SelectField('Referrals?', choices=
                             [('-1', "All"), ('0', "Non-Referrals"), ('1', 'Only Referrals')],
                             validators=[DataRequired()], default="All")

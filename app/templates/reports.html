@@ -45,6 +45,14 @@
                         <span class="form_error">{{ error }}</span>
                     {% endfor %}
                 <br>
+                {{ form.q_type_report.label }}
+                <br>
+                {{ form.q_type_report }}
+                <br>
+                    {% for error in form.q_type_report.errors %}
+                        <span class="form_error">{{ error }}</span>
+                    {% endfor %}
+                <br>
                 {{ form.referral_type.label }}
                 <br>
                 {{ form.referral_type }}

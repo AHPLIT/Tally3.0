@@ -4,15 +4,15 @@ from app import db
 # flask db migrate -m "commit message"
 # flask db upgrade
 
-
-class QueryTypes(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    q_type = db.Column(db.Text, unique=True, nullable=False)
+# QTypes should be in their own DB with a FK relationship but... I forgot.
+# class QueryTypes(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     q_type = db.Column(db.Text, unique=True, nullable=False)
 
 
 class Queries(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    q_type = db.Column(db.Integer, db.ForeignKey(QueryTypes.id))
+    q_type = db.Column(db.Text, nullable=False)
     department = db.Column(db.Text, nullable=False)
     date = db.Column(db.Text, nullable=False)
     time = db.Column(db.Text, nullable=False)

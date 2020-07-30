@@ -20,7 +20,7 @@ def adult_info_queries():
     form = TallyForm()
     if form.validate_on_submit():
         db_functions.write_to_database(form, 1)
-        flash("Tally recorded!")
+        flash("Tally recorded at " + datetime.datetime.now().strftime('%I:%M %p'))
     return render_template('info_services.html', title="Information Services", form=form)
 
 
@@ -29,7 +29,7 @@ def youth_info_queries():
     form = TallyForm()
     if form.validate_on_submit():
         db_functions.write_to_database(form, 2)
-        flash("Tally recorded!")
+        flash("Tally recorded at " + datetime.datetime.now().strftime('%I:%M %p'))
     return render_template('youth_services.html', title="Youth Services", form=form)
 
 

@@ -84,7 +84,7 @@ input[type='checkbox']:checked
     background: #74ac43;
 }
 
-#start_date, #end_date, #start_time, #end_time, #department, #referral_type
+#start_date, #end_date, #start_time, #end_time, #department, #referral_type, #q_type_report
 {
     font-size: 24px;
     width: 100%;
