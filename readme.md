@@ -7,6 +7,11 @@ for logging patron interactions at the library. At its heart, it is a simple CRU
 some fancy, but not terribly complicated, reporting functionality.
 
 ## Changelog
+7/30/2020
+* Added the ability to filter by interaction type when running reports
+* Cleaned up CSS and accounted for some edge cases in styling
+* Retooled database to cut unnecessary tables
+
 7/29/2020
 * Added export to CSV functionality
 * Added CSS styling to all pages
@@ -16,7 +21,7 @@ some fancy, but not terribly complicated, reporting functionality.
 
 ## Planned Upcoming Features
 * ~~Adding CSS (ha)~~
-* Filter by interaction type when running report
+~~ * Filter by interaction type when running report~~
 * ~~Export table to Excel/CSV~~
 * Build out Docker deployment
 
