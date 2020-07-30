@@ -21,7 +21,7 @@ some fancy, but not terribly complicated, reporting functionality.
 
 ## Planned Upcoming Features
 * ~~Adding CSS (ha)~~
-~~ * Filter by interaction type when running report~~
+* ~~Filter by interaction type when running report~~
 * ~~Export table to Excel/CSV~~
 * Build out Docker deployment
 
