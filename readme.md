@@ -23,7 +23,7 @@ some fancy, but not terribly complicated, reporting functionality.
 * ~~Adding CSS (ha)~~
 * ~~Filter by interaction type when running report~~
 * ~~Export table to Excel/CSV~~
-* Build out Docker deployment
+* ~~Build out Docker deployment~~
 
 ## How it Works
 ### Tallying
@@ -54,4 +54,7 @@ database query
 
 ## Deployment Instructions
 Tally3.0 is designed to be deployed locally in a Docker container on a Linux server. 
-(Docker file and scripts forthcoming)
+Simply pull the project to a Linux machine that has docker installed and run sudo bash start.sh
+to start the container. By default, the application will bind to port 5050. The docker file
+will also set the timezone to EST. This can all be configured from within the Dockerfile itself
+if necessary. 
